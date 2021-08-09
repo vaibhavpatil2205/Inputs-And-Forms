@@ -1,0 +1,53 @@
+html, input{
+    font-family: sans-serif;
+    padding-top: 3px;
+}
+body{
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2em;
+    border: 2px solid rgb(253, 3, 3);
+    border-radius: 7px;
+    padding-top: 10px;
+}
+form{
+    margin-top: 50px;
+}
+.headerContainer{
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+    background-color: rgb(255, 254, 254);
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+div{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+label, input, button{
+    font-size: 15px;
+    line-height: 1.5e;
+}
+label{
+    text-align: right;
+    width: 30%;
+    margin-right: 2%;
+}
+input{
+    flex: auto;
+}
+button{
+    width: 20%;
+    margin: 0 auto;
+}
+error-output{
+    font-size: 12px;
+    font-style: italic;
+    color: rgb(41, 1, 1);
+}
