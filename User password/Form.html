@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Form.css">
+    <title>Employee Registration Form</title>
+</head>
+
+<body>
+    <form >
+        <header class= "headerContainer" style="background-color: rgb(221, 186, 174)"><h1>Employee Registration Form</h1></header>
+        <div>
+            <label for="text">Text Input for Name : </label>
+            <input type="text" id="name" name="name" required>
+            <error-output for="text" class="name-error"></error-output>
+        </div><br>
+        <div>
+            <label for="pwd">Password Input Type : </label>
+            <input type="password" id="pwd" name="pwd">
+            <error-output for="pwd" class="pwd-error"></error-output>
+        </div><br>
+        <div>
+            <label for="email">Email Input Type :   </label>
+            <input type="email" id="email" name="email">
+            <error-output for="email" class="email-error"></error-output>
+        </div><br>
+        <div>
+            <label for="url">URL Input for Name : </label>
+            <input type="url" id="url" name="url">
+        </div><br>
+        <div>
+            <label for="number">Number input Type : </label>
+            <input type="number" id="number" name="number">
+        </div><br>
+        <div>
+            <label for="tel">Tel input Type : </label>
+            <input type="tel" id="tel" name="tel">
+            <error-output for="tel" class="tel-error"></error-output>
+        </div><br>
+        <div>
+            <label for="search">serach input Type : </label>
+            <input type="search" id="search" name="search">
+        </div><br>
+        <div>
+            <label for="party">Choose Date and Time input Type : </label>
+            <input type="datetime-local" id="party" name="bday">
+        </div><br>
+        <div>
+            <label for="salary">Choose Your Salary : </label>
+            <input type="range" id="salary" name="salary" 
+            min="200000" max="400000" step="10" value="300000" >
+            <output class="salary-output">300000</output>
+        </div><br>
+        <div>
+            <button>Submit</button>
+        </div>
+    </form>
+    <script>
+
+        const salary=document.querySelector('#salary');
+        const salaryOutput=document.querySelector('.salary-output')
+        salary.addEventListener('input', function () {
+            salaryOutput.textContent = salary.value;
+            console.log(salaryOutput.textContent);
+        }); 
+        //name validation
+        const nameText=document.querySelector('#name');
+        const nameTextError=document.querySelector('.name-error')
+        nameText.addEventListener('input',function(){
+            let nameRegex=RegExp('^[A-Z]{1}[a-z]{2,}$')
+            console.log(nameText);
+            if(nameRegex.test(nameText.value))
+                nameTextError.textContent=' ';
+            else
+                nameTextError.textContent='Name invalid'
+        });
+
+        
+         //To validate the email field using the REGEX expression
+        
+         const email = document.querySelector('#email');
+        const emailError = document.querySelector('.email-error');
+        email.addEventListener('input', function () {
+            let emailPattern = RegExp('^([a-zA-Z0-9]{1,}[.]?[a-zA-Z0-9]{1,}?[@][a-zA-Z]{1,}([.][a-zA-Z]{2,4}){1,2})$');
+            if (emailPattern.test(email.value))
+                emailError.textContent = '';
+            else
+                emailError.textContent = "Enter Valid Email Address";
+        });
+
+        //Mobile number validation
+        const number = document.querySelector('#tel');
+        const numberError = document.querySelector('.tel-error');
+        number.addEventListener('input', function () {
+            let numberRegex = RegExp('^[1-9]{2}\\s{0,1}[1-9]{1}[0-9]{9}$');
+            if (numberRegex.test(number.value))
+                numberError.textContent = ' ';
+            else
+                numberError.textContent = 'Invalid Number!';
+        });
+        //password validation minimum 8 characters
+        const pwd = document.querySelector('#pwd');
+        const passworderror = document.querySelector('.pwd-error');
+        pwd.addEventListener('input', function () {
+        let passwordpattern = RegExp('^[a-z A-Z 0-9 @#%!&*_]{8,}$');
+            if (passwordpattern.test(pwd.value))
+                passworderror.textContent = ' ';
+            else
+                passworderror.textContent = 'Invalid Password!';
+        });
+        
+        
+    </script>
+</body>
+</html>
